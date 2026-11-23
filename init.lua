@@ -17,9 +17,8 @@ vim.opt.clipboard = "unnamedplus" -- Syncs Vim yank/paste with your system clipb
 vim.opt.list = true
 vim.opt.listchars = { tab = "  ", trail = "·" } -- trailing whitespace detector
 
-vim.keymap.set("v", "<RightMouse>", '"+y', { silent = true }) -- Right-click to copy visual selection to system clipboard
-vim.keymap.set("n", "<S-RightMouse>", '"+p', { silent = true }) -- Shift + Right-click to paste from system clipboard at cursor position
-vim.keymap.set("i", "<S-RightMouse>", '<C-r>+', { silent = true })
+-- Right-click to copy visual selection to system clipboard
+vim.keymap.set("v", "<RightMouse>", '"+y', { silent = true }) 
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "c",
@@ -57,7 +56,6 @@ vim.lsp.config('clangd', {
   filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
   root_markers = { 'compile_commands.json', '.clangd', '.git' },
 })
-
 vim.lsp.enable('clangd')
 
 vim.diagnostic.config({
